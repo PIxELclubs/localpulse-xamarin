@@ -14,6 +14,9 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Localpulse\Localpulse\Localpulse.projitems*{b304febe-9dd4-468d-9d09-2925001f9b56}*SharedItemsImports = 13
+		Localpulse\Localpulse\Localpulse.projitems*{ebfc1b24-82b2-4ae9-beca-7aa6889de4c1}*SharedItemsImports = 4
+		Localpulse\Localpulse\Localpulse.projitems*{31c71dd0-31f7-485c-ad3d-400dc3732877}*SharedItemsImports = 4
+		Localpulse\Localpulse\Localpulse.projitems*{5affa803-7424-443c-919d-5f512fb9cbf1}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

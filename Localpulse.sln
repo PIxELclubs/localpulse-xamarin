@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localpulse.WinPhone", "Loca
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Localpulse", "Localpulse\Localpulse\Localpulse.shproj", "{B304FEBE-9DD4-468D-9D09-2925001F9B56}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F7BCDE3-7F17-4D0E-91AF-AD74F03A459D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Localpulse\Localpulse\Localpulse.projitems*{b304febe-9dd4-468d-9d09-2925001f9b56}*SharedItemsImports = 13

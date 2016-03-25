@@ -4,7 +4,7 @@
   <mp:PhoneIdentity PhoneProductId="fb49c45b-5b2a-4b17-9adb-7f348c5a0280" PhonePublisherId="a41383d2-df0b-4f7d-add2-32108a09ac1b" />
   <Properties>
     <DisplayName>Localpulse.WinPhone</DisplayName>
-    <PublisherDisplayName>tiancheng.gu</PublisherDisplayName>
+    <PublisherDisplayName>Timothy Gu</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>

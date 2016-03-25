@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Localpulse.IssueCell">
+  <StackLayout Orientation="Horizontal" Spacing="12" BackgroundColor="Transparent" HorizontalOptions="StartAndExpand">
+    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+      <Label Text="up" XAlign="Center" />
+      <Label Text="{Binding Votes}" XAlign="Center" FontSize="24"/>
+      <Label Text="do" XAlign="Center" />
+    </StackLayout>
+    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+      <Label Text="{Binding Description}" FontSize="24" HorizontalOptions="StartAndExpand" />
+      <Label Text="{Binding Location}" HorizontalOptions="StartAndExpand" />
+    </StackLayout>
+
+  </StackLayout>
+</ViewCell>

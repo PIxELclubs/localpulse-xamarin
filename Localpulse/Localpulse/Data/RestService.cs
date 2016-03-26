@@ -14,23 +14,23 @@ namespace Localpulse
     {
 		private static HttpClient client = new HttpClient();
 
-		public static ObservableCollection<IssueViewModel> Issues { get; private set; } = new ObservableCollection<IssueViewModel>();
+		public static ObservableCollection<IssueDetail> Issues { get; private set; } = new ObservableCollection<IssueDetail>();
 
 		public static async Task RefreshIssuesAsync()
 		{
-			HttpResponseMessage response = await client.GetAsync(new Uri("https://localpulse.org/api/1.0/getAllJSON"));
+			HttpResponseMessage response = await client.GetAsync(new Uri("https://localpulse.org/api/1.2/getAllJSON"));
 			string output = await response.Content.ReadAsStringAsync();
-			List<IssueViewModel> localItems = await Task.Run(() => JsonConvert.DeserializeObject<List<IssueViewModel>>(output));
-			foreach (IssueViewModel issue in localItems) {
+			List<IssueDetail> localItems = await Task.Run(() => JsonConvert.DeserializeObject<List<IssueDetail>>(output));
+			foreach (IssueDetail issue in localItems) {
 				Issues.Add(issue);
 			}
 		}
 
-		public static async Task GetIssueDetail(string objectId)
+		public static async Task<IssueDetail> GetIssueDetailAsync(string objectId)
 		{
 			HttpResponseMessage response = await client.GetAsync(new Uri("https://localpulse.org/api/1.0/get/" + objectId));
 			string output = await response.Content.ReadAsStringAsync();
-
+			return await Task.Run(() => JsonConvert.DeserializeObject<IssueDetail>(output));
 		}
 	}
 }

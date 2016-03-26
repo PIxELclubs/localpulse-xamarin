@@ -15,15 +15,23 @@
       <DependentUpon>IssueCell.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)IssueDetailPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IssueDetailPage.xaml.cs">
+      <DependentUpon>IssueDetailPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)IssuesListPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IssueDetail.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\IssueViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestPage2.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)IssueCell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)IssueDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -49,11 +49,15 @@ namespace Localpulse
 			}
 		}
 
-		public static async Task<ObservableCollection<IssueComment>> GetIssueCommentsAsync(string objectId)
+		public static async Task GetIssueCommentsAsync(string objectId)
 		{
 			var fetched = await GetFromUri(new Uri("https://localpulse.org/api/1.2/getComments/" + objectId + "?" + CacheBuster()));
 			var parsed = await ParseJson<List<IssueComment>>(fetched);
-			return DbService.IssueComments[objectId] = new ObservableCollection<IssueComment>(parsed);
+			var output = new ObservableCollection<IssueComment>(parsed);
+			if (!DbService.IssueComments.ContainsKey(objectId)) {
+				DbService.IssueComments[objectId] = new ObservableCollection<IssueComment>();
+			}
+			DbService.MergeCollection<IssueComment>(DbService.IssueComments[objectId], output);
 		}
 	}
 }

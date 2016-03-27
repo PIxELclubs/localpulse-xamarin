@@ -10,7 +10,7 @@ using System.Resources;
 [assembly: AssemblyDescription("Crowdsourced Community Improvement")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Localpulse.WinPhone")]
+[assembly: AssemblyProduct("Localpulse")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

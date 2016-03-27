@@ -3,7 +3,7 @@
   <Identity Name="8e81ed87-2232-47f3-afd1-47420a51fb0b" Publisher="CN=tiancheng.gu" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="fb49c45b-5b2a-4b17-9adb-7f348c5a0280" PhonePublisherId="a41383d2-df0b-4f7d-add2-32108a09ac1b" />
   <Properties>
-    <DisplayName>Localpulse.WinPhone</DisplayName>
+    <DisplayName>Localpulse</DisplayName>
     <PublisherDisplayName>Timothy Gu</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -38,4 +38,9 @@
       </InProcessServer>
     </Extension>
   </Extensions>
+  <Capabilities>
+    <Capability Name="picturesLibrary" />
+    <DeviceCapability Name="webcam" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
 </Package>

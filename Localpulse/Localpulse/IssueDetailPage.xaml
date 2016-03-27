@@ -2,8 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Localpulse.IssueDetailPage">
-  <StackLayout BindingContext="{x:Reference Issue}" x:Name="layout">
-    <Label Text="{Binding Description}" />
-    <Label Text="{Binding Votes}" />
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Refresh.png" Text="Refresh" />
+    <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Add.png" Text="Comment" />
+    <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Thumbs.Up.png" Text="Support" />
+  </ContentPage.ToolbarItems>
+  <StackLayout Spacing="0">
+    <StackLayout x:Name="IssueLayout" Padding="24, 17, 24, 28">
+      <Label Text="{Binding CreatedAt}" FontSize="20" />
+      <Label Text="{Binding Description}" FontSize="34" />
+      <Label Text="{Binding Votes, StringFormat='SUPPORTED BY {0}'}"
+             HorizontalOptions="End"
+             FontSize="20" />
+    </StackLayout>
+    <Grid x:Name="CommentsView">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+    </Grid>
   </StackLayout>
 </ContentPage>

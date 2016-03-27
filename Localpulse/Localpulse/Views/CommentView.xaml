@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Localpulse.Views.CommentView"
+             Padding="24, 10">
+  <Label Text="{Binding CreatedAt}"
+         FontSize="15"
+         HorizontalOptions="End" />
+  <Label Text="{Binding Data}"
+         FontSize="Medium"
+         VerticalOptions="Start" />
+</StackLayout>

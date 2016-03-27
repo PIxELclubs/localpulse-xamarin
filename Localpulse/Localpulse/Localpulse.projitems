@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DbService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\RestService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IssueCell.xaml.cs">
       <DependentUpon>IssueCell.xaml</DependentUpon>
@@ -21,8 +22,12 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)IssuesListPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IssueComment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IssueDetail.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestPage2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CommentView.xaml.cs">
+      <DependentUpon>CommentView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)IssueCell.xaml">
@@ -32,6 +37,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)IssueDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CommentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

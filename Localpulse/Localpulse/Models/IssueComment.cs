@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace Localpulse
 {
-    public class IssueDetail : INotifyPropertyChanged
+    public class IssueComment : INotifyPropertyChanged
 	{
 		#region INotifyPropertyChanged implementation
 
@@ -21,9 +22,8 @@ namespace Localpulse
 		string objectId = string.Empty;
 		DateTime createdAt = new DateTime(0);
 		DateTime updatedAt = new DateTime(0);
-		string description = string.Empty;
-		int votes = 0;
-		string picture = string.Empty;
+		string data = string.Empty;
+		string target = string.Empty;
 
 		#endregion
 
@@ -63,49 +63,29 @@ namespace Localpulse
 				}
 			}
 		}
-		public string Description
+		public string Data
 		{
 			get {
-				return description;
+				return data;
 			}
 			set {
-				if (value != description) {
-					description = value;
+				if (value != data) {
+					data = value;
 					NotifyPropertyChanged();
 				}
 			}
 		}
-		public int Votes
+		public string Target
 		{
 			get {
-				return votes;
+				return target;
 			}
 			set {
-				if (value != votes) {
-					votes = value;
+				if (value != target) {
+					target = value;
 					NotifyPropertyChanged();
 				}
 			}
-		}
-		public string Picture
-		{
-			get {
-				return picture;
-			}
-			set {
-				if (value != picture) {
-					picture = value;
-					NotifyPropertyChanged();
-				}
-			}
-		}
-
-		public void Update(IssueDetail newer)
-		{
-			Description = newer.Description;
-			Votes = newer.Votes;
-			ObjectId = newer.ObjectId;
-			Picture = newer.Picture;
 		}
 
 		public override bool Equals(object obj)
@@ -114,14 +94,14 @@ namespace Localpulse
 				return false;
 			}
 
-			return ObjectId == ((IssueDetail)obj).ObjectId;
+			return ObjectId == ((IssueComment)obj).ObjectId;
 		}
 		public override int GetHashCode()
 		{
 			return ((ObjectId[3] << 24) | (ObjectId[2] << 16) | (ObjectId[1] << 8) | ObjectId[0]);
 		}
 
-		public IssueDetail()
+		public IssueComment()
 		{
 			;
 		}

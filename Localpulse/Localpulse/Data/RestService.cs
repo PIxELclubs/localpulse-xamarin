@@ -24,7 +24,10 @@ namespace Localpulse
 			var response = await request.GetResponseAsync();
 			var stream = response.GetResponseStream();
 			var streamReader = new StreamReader(stream);
-			return await streamReader.ReadToEndAsync();
+			var output = await streamReader.ReadToEndAsync();
+			streamReader.Close();
+			response.Close();
+			return output;
 		}
 
 		static async Task<T> ParseJson<T>(string input)

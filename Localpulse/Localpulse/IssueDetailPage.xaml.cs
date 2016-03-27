@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.ComponentModel;
 
 using Xamarin.Forms;
 
@@ -10,13 +11,13 @@ namespace Localpulse
 	{
 		IssueDetail issue;
 		ObservableCollection<IssueComment> comments = new ObservableCollection<IssueComment>();
-		bool loading = true;
 
 		public IssueDetailPage(string objectId)
 		{
 			InitializeComponent();
 			issue = DbService.Issues[objectId];
 			IssueLayout.BindingContext = issue;
+			LoadingLabel.IsVisible = true;
 
 			comments.CollectionChanged += CommentsChanged;
 
@@ -48,14 +49,13 @@ namespace Localpulse
 		async void GetCommentsAsync()
 		{
 			try {
-				loading = true;
+				LoadingLabel.IsVisible = true;
 				var tmp = await RestService.GetIssueCommentsAsync(issue.ObjectId);
 				DbService.MergeCollection<IssueComment>(comments, tmp);
-				loading = false;
+				LoadingLabel.IsVisible = false;
 			} catch (Exception e) {
-				loading = false;
+				LoadingLabel.IsVisible = false;
 				await DisplayAlert("Error", "Failed to fetch issue comments.\n" + e.Message, "OK");
-				await Navigation.PopAsync();
 			}
 		}
 

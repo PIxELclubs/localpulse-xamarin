@@ -69,5 +69,10 @@ namespace Localpulse
 				await Navigation.PopAsync();
 			}
 		}
+
+		void RefreshHandler(object sender, EventArgs e)
+		{
+			GetCommentsAsync();
+		}
 	}
 }

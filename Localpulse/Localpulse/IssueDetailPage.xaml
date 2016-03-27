@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Localpulse.IssueDetailPage">
   <ContentPage.ToolbarItems>
-    <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Refresh.png" Text="Refresh" />
+    <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Refresh.png" Text="Refresh" Clicked="RefreshHandler" />
     <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Add.png" Text="Comment" />
     <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Thumbs.Up.png" Text="Support" />
   </ContentPage.ToolbarItems>

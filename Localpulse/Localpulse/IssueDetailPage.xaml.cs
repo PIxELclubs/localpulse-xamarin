@@ -54,14 +54,7 @@ namespace Localpulse
 			try {
 				loading = true;
 				var tmp = await RestService.GetIssueCommentsAsync(issue.ObjectId);
-				var deleted = Enumerable.Except<IssueComment>(comments, tmp);
-				var added = Enumerable.Except<IssueComment>(tmp, comments);
-				foreach (var item in deleted) {
-					comments.Remove(item);
-				}
-				foreach (var item in added) {
-					comments.Add(item);
-				}
+				DbService.MergeCollection<IssueComment>(comments, tmp);
 				loading = false;
 			} catch (Exception e) {
 				loading = false;

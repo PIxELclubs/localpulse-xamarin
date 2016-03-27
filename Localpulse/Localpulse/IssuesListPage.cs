@@ -18,7 +18,7 @@ namespace Localpulse
 				Text = "Post",
 			});
 
-			ListView lstView = new ListView();
+			var lstView = new ListView();
 			lstView.RowHeight = 120;
 
 			lstView.ItemsSource = RestService.Issues;
@@ -37,10 +37,10 @@ namespace Localpulse
 				return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
 			}
 			// Prevent selection
-			ListView lst = (ListView)sender;
+			var lst = (ListView)sender;
 			lst.SelectedItem = null;
 			// Navigate
-			IssueDetail issue = (IssueDetail)e.SelectedItem;
+			var issue = (IssueDetail)e.SelectedItem;
 			Navigation.PushAsync(new IssueDetailPage(issue.ObjectId));
 		}
 

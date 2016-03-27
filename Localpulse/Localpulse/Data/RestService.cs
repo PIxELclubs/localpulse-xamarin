@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -24,7 +21,7 @@ namespace Localpulse
 
 		public static async Task RefreshIssuesAsync()
 		{
-			var response = await client.GetAsync(new Uri("https://localpulse.org/api/1.2/getAllJSON?" + CacheBuster());
+			var response = await client.GetAsync(new Uri("https://localpulse.org/api/1.2/getAllJSON?" + CacheBuster()));
 			var output = await response.Content.ReadAsStringAsync();
 			List<IssueDetail> localItems = await Task.Run(() => JsonConvert.DeserializeObject<List<IssueDetail>>(output, new IsoDateTimeConverter()));
 			foreach (var issue in localItems) {
@@ -39,7 +36,7 @@ namespace Localpulse
 
 		public static async Task<ObservableCollection<IssueComment>> GetIssueCommentsAsync(string objectId)
 		{
-			var response = await client.GetAsync(new Uri("https://localpulse.org/api/1.2/getComments/" + objectId + "?" + CacheBuster());
+			var response = await client.GetAsync(new Uri("https://localpulse.org/api/1.2/getComments/" + objectId + "?" + CacheBuster()));
 			var output = await response.Content.ReadAsStringAsync();
 			List<IssueComment> parsed = await Task.Run(() => JsonConvert.DeserializeObject<List<IssueComment>>(output, new IsoDateTimeConverter()));
 			return DbService.IssueComments[objectId] = new ObservableCollection<IssueComment>(parsed);

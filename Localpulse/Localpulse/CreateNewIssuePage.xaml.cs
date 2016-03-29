@@ -20,6 +20,7 @@ namespace Localpulse
 	public partial class CreateNewIssuePage : ContentPage
 	{
 #if WINDOWS_PHONE
+		List<ToolbarItem> backupToolbarItems;
 		TaskScheduler scheduler = TaskScheduler.FromCurrentSynchronizationContext();
 
 		IGeolocator geolocator;
@@ -38,6 +39,11 @@ namespace Localpulse
 			Title = "Submit Report";
 
 #if WINDOWS_PHONE
+			backupToolbarItems = new List<ToolbarItem>(ToolbarItems);
+
+			Description.Focused += (sender, e) => ToolbarItems.Clear();
+			Description.Unfocused += (sender, e) => { foreach (var a in backupToolbarItems) ToolbarItems.Add(a); };
+			
 			geolocator = Resolver.Resolve<IGeolocator>();
 			mediaPicker = Resolver.Resolve<IMediaPicker>();
 			GetGeolocation();
@@ -114,15 +120,15 @@ namespace Localpulse
 		async void SubmitReport(object sender, EventArgs e)
 		{
 			try {
-				await positionTask;
 				if (copiedImageStream == null) {
 					await DisplayAlert("Error", "You have not taken a photo.", "OK");
 					return;
 				}
-				if (Description.Text.Trim() == "" || Description.Text == "Please enter a brief description.") {
+				if (Description.IsEmpty) {
 					await DisplayAlert("Error", "Please write a short description of the issue.", "OK");
 					return;
 				}
+				await positionTask;
 				await RestService.PostIssueAsync(copiedImageStream, Description.Text, Position);
 				await Navigation.PopAsync();
 			} catch (Exception err) {

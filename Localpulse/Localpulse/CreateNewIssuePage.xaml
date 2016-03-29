@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Localpulse.Views;assembly=Localpulse"
              x:Class="Localpulse.CreateNewIssuePage"
              BackgroundColor="#00a6e9">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Camera.png" Text="Take photo" Clicked="TakePicture" />
+    <ToolbarItem Icon="Toolkit.Content\\ApplicationBar.Save.png" Text="Submit" Clicked="SubmitReport" />
+  </ContentPage.ToolbarItems>
+  
   <StackLayout Padding="0" Spacing="12">
     <StackLayout Padding="24, 0" Spacing="12">
       <Label Text="submit report" FontSize="72" FontFamily="Segoe WP SemiLight" />
@@ -14,12 +20,11 @@
              FontSize="24" />
       <Label Text="We'll automatically grab your location and attach it to your report." FontSize="20" />
 
-      <Editor x:Name="Description" Text="Please enter a brief description." HeightRequest="108" />
-
-      <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-        <Button Clicked="TakePicture" Text="Take Picture" />
-        <Button Clicked="SubmitReport" Text="Submit Incident" BackgroundColor="#387ef5" />
-      </StackLayout>
+      <local:PlaceholderEditor x:Name="Description"
+                               Text="Please enter a brief description."
+                               Placeholder="Please enter a brief description."
+                               HeightRequest="108"
+                               BackgroundColor="White" />
     </StackLayout>
 
     <ScrollView>

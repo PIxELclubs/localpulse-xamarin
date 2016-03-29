@@ -4,9 +4,8 @@
              x:Class="Localpulse.IssueCell">
   <StackLayout Orientation="Horizontal" Spacing="12" BackgroundColor="Transparent" HorizontalOptions="StartAndExpand">
     <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-      <Label Text="up" XAlign="Center" />
+      <Label Text="➕" XAlign="Center" />
       <Label Text="{Binding Votes}" XAlign="Center" FontSize="24"/>
-      <Label Text="do" XAlign="Center" />
     </StackLayout>
     <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
       <Label Text="{Binding Description}" FontSize="24" HorizontalOptions="StartAndExpand" />

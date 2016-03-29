@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Localpulse.Views;assembly:Localpulse"
              x:Class="Localpulse.IssueDetailPage"
              BackgroundColor="#00a6e9">
   <ContentPage.ToolbarItems>
@@ -31,12 +32,15 @@
           </Grid.ColumnDefinitions>
         </Grid>
       </ScrollView>
+      <local:PlaceholderEditor x:Name="NewComment"
+                               Text="Enter your comment…"
+                               Placeholder="Enter your comment…"
+                               BackgroundColor="White" />
     </StackLayout>
     <Label Grid.Row="0" Grid.Column="0"
            x:Name="LoadingLabel"
            Text="Loading…"
            VerticalOptions="CenterAndExpand"
-           HorizontalOptions="CenterAndExpand"
-           AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" />
+           HorizontalOptions="CenterAndExpand" />
   </Grid>
 </ContentPage>

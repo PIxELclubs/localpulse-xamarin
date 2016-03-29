@@ -10,7 +10,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Localpulse.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>LocalpulseiOS</AssemblyName>
+    <AssemblyName>Localpulse</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <DontImportPostSharp>True</DontImportPostSharp>

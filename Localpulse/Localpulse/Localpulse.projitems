@@ -10,6 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CreateNewIssuePage.xaml.cs">
+      <DependentUpon>CreateNewIssuePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Data\DbService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\RestService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IssueCell.xaml.cs">
@@ -24,6 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IssueComment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IssueDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RestResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\CommentView.xaml.cs">
       <DependentUpon>CommentView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -46,5 +51,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)CreateNewIssuePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Interfaces\" />
   </ItemGroup>
 </Project>

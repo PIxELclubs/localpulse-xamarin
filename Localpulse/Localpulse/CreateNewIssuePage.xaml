@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Localpulse.CreateNewIssuePage"
+             BackgroundColor="#00a6e9">
+  <StackLayout Padding="0" Spacing="12">
+    <StackLayout Padding="24, 0" Spacing="12">
+      <Label Text="submit report" FontSize="72" FontFamily="Segoe WP SemiLight" />
+    
+      <!-- Hack for similar layout as TabbedPage -->
+      <BoxView BackgroundColor="Transparent" WidthRequest="1" HeightRequest="0" />
+
+      <Label Text="Submitting a problem on Localpulse is simple. All you need to do is write a short description, take a picture, and tap Submit."
+             FontSize="24" />
+      <Label Text="We'll automatically grab your location and attach it to your report." FontSize="20" />
+
+      <Editor x:Name="Description" Text="Please enter a brief description." HeightRequest="108" />
+
+      <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+        <Button Clicked="TakePicture" Text="Take Picture" />
+        <Button Clicked="SubmitReport" Text="Submit Incident" BackgroundColor="#387ef5" />
+      </StackLayout>
+    </StackLayout>
+
+    <ScrollView>
+      <Image x:Name="ImagePreview" Aspect="AspectFill" />
+    </ScrollView>
+  </StackLayout>
+</ContentPage>

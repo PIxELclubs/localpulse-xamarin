@@ -9,14 +9,18 @@ namespace Localpulse
 		{
 			Title = "Localpulse";
 
+			BackgroundColor = new Color(0.0, 166.0 / 255.0, 233.0 / 255.0);
+
 			ToolbarItems.Add(new ToolbarItem {
 				Icon = "Toolkit.Content\\ApplicationBar.Refresh.png",
 				Text = "Refresh",
 			});
-			ToolbarItems.Add(new ToolbarItem {
+			var postButton = new ToolbarItem {
 				Icon = "Toolkit.Content\\ApplicationBar.Add.png",
 				Text = "Post",
-			});
+			};
+			postButton.Clicked += CreateNewIssue;
+			ToolbarItems.Add(postButton);
 
 			var lstView = new ListView();
 			lstView.RowHeight = 120;
@@ -42,6 +46,11 @@ namespace Localpulse
 			// Navigate
 			var issue = (IssueDetail)e.SelectedItem;
 			Navigation.PushAsync(new IssueDetailPage(issue.ObjectId));
+		}
+
+		void CreateNewIssue(object sender, EventArgs e)
+		{
+			Navigation.PushAsync(new CreateNewIssuePage());
 		}
 
 		async void RefreshIssuesAsync()
